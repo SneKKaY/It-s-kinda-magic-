@@ -31,7 +31,7 @@ class House:
 
     def __gt__(self, other):
         isinstance(other, House)
-        return self.number_of_floors > other.numbers_of_floors
+        return self.number_of_floors > other.number_of_floors
 
     def __ge__(self, other):
         isinstance(other, House)
@@ -42,16 +42,17 @@ class House:
         return self.number_of_floors != other.number_of_floors
 
     def __add__(self, value):
-        isinstance(value, House)
-        return self.number_of_floors + value
+        isinstance(value, int)
+        self.number_of_floors = self.number_of_floors + value
+        return self
 
     def __radd__(self, value):
-        isinstance(value, House)
-        return self.number_of_floors + value
+        isinstance(value, int)
+        return self.__add__(value)
 
     def __iadd__(self, value):
-        isinstance(value, House)
-        return self.number_of_floors + value
+        isinstance(value, int)
+        return self.__add__(value)
 
 
 h1 = House('ЖК Эльбрус', 10)
